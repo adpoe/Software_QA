@@ -1,6 +1,3 @@
-package com.company;
-
-import com.company.Driver;
 
 public class Main {
 

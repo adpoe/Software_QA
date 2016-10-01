@@ -1,4 +1,3 @@
-package com.company;
 
 import java.util.LinkedList;
 
@@ -37,6 +36,13 @@ public class Node {
      */
     public Edge getRandStreet(int randValue) {
         int listLength = edgeList.size();
+
+        // return a null if there are no streets
+        if (listLength == 0) {
+            return null;
+        }
+
+        // otherwise, return a value
         return this.edgeList.get(randValue % listLength);
     }
 
@@ -56,4 +62,3 @@ public class Node {
         return hasCoffee;
     }
 }
-

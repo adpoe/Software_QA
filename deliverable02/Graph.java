@@ -1,8 +1,4 @@
-package com.company;
-
-import com.company.Node;
 import java.util.LinkedList;
-
 
 /**
  * Graph, containing all of our locations.
