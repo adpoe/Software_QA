@@ -29,6 +29,7 @@ public class NodeTest {
     @Before
     public void setUp() throws Exception {
       MockitoAnnotations.initMocks(mockedNode);
+      MockitoAnnotations.initMocks(edgeMock);
     }
 
     @After
