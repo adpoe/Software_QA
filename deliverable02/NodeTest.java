@@ -5,6 +5,18 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.*;
 
+/**
+ * This test class tests all 4 public methods in the Nodes class for the project.
+ * The public methods are:
+ *    1) addStreet()
+ *    2) getRandStreet()
+ *    3) getLocationName()
+ *    4) getHasCoffee()
+ *
+ * The Node class's Constructor method, which is also public is tested by these
+ * implicitly, as we are testing node attributes using these public methods,
+ * after creating a Node with its Constructor.
+ */
 
 public class NodeTest {
 
@@ -41,10 +53,22 @@ public class NodeTest {
       assertEquals(n.edgeList.size(),1);
     }
 
+    // Test adding multiple Streets
+    @Test
+    public void testMultipleAdds() {
+      Node n = new Node("Hillman", true);
+      for (int j = 0; j < 10; j++) {
+          n.addStreet(edgeMock);
+      }
+      assertEquals(n.edgeList.size(), 10);
+    }
+
+
 
     //////////////////////////////////
     //////// TEST GET STREET /////////
     //////////////////////////////////
+
     // Test that we successfully get a null value if there are no values
     // added to a node's edge-list yet.
     @Test
@@ -64,24 +88,48 @@ public class NodeTest {
     }
 
 
-    /*
     /////////////////////////////////////////
     //////// TEST GET LOCATION NAME /////////
     /////////////////////////////////////////
-    @Test
-    public void getLocationName() throws Exception {
 
+    // Ensure that we are able to store and return the Node's location name
+    // correctly.
+    @Test
+    public void getLocationNameSucceeds() throws Exception {
+      Node n = new Node("Hillman", true);
+      assertEquals(n.getLocationName(), "Hillman");
+    }
+
+    // Ensure we can correctly identify incorrect return values from the
+    // getLocationName() method. This is to avoid false positives in our testing.
+    @Test
+    public void getLocationNameFails() throws Exception {
+      Node n = new Node("Library", true);
+      assertNotEquals(n.getLocationName(), "Hillman");
     }
 
 
     //////////////////////////////////
     //////// TEST GET COFFEE /////////
     //////////////////////////////////
-    @Test
-    public void getHasCoffee() throws Exception {
 
+    // Ensure we are able to correctly identify when a Node (Location)
+    // does have coffee.
+    @Test
+    public void getHasCoffeeSucceeds() throws Exception {
+      Node n = new Node("Hillman", true);
+      assertTrue(n.getHasCoffee());
     }
 
+    // Ensure we are able to correctly identify when a Node (Location)
+    // does NOT have coffee.
+    @Test
+    public void getHasCoffeeFails() throws Exception {
+      Node n = new Node("Frick Building", false);
+      assertFalse(n.getHasCoffee());
+    }
+
+    /*
     // The following two tests should always pass.
     // They don't really check anything.
 
