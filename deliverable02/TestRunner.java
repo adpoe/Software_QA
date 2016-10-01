@@ -12,6 +12,8 @@ public class TestRunner {
 	// ADD ANY MORE CLASSES YOU WISH TO TEST HERE
 
 	classesToTest.add(NodeTest.class);
+  classesToTest.add(EdgeTest.class);
+  classesToTest.add(GraphTest.class);
 
 
 	// For all test classes added, loop through and use JUnit

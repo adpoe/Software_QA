@@ -6,7 +6,7 @@ import java.util.LinkedList;
  */
 public class Graph {
     // container for nodes
-    private LinkedList<Node> elements;
+    public LinkedList<Node> elements;
 
     /**
      * Constructor method
