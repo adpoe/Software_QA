@@ -6,7 +6,7 @@ import java.util.LinkedList;
  */
 public class Node {
     // Fields
-    private LinkedList<Edge> edgeList;
+    public LinkedList<Edge> edgeList;
     private String locationName;
     private Boolean hasCoffee;
 

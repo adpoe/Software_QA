@@ -29,21 +29,16 @@ public class NodeTest {
     //////// TEST ADD STREET /////////
     //////////////////////////////////
 
-    // Test that we can add streets to a node, by adding only one and ensuring
-    // we can get it back successfully.
+    // Test that we can add streets to a node, by making sure that adding an Edge
+    // increases the size of the internal edge-list.
     @Test
-    public void addStreetWorks() throws Exception {
+    public void addStreetSucceeds() throws Exception {
+      // ensure that size is 0 before adding a street
       Node n = new Node("Hillman", true);
-      Edge e = new Edge(mockedNode, mockedNode, "StreetName", false);
-      n.addStreet(e);
-      assertEquals(n.getRandStreet(1), e);
-    }
-
-    // Ensure we cannot add a street if we pass it something other than an edge.
-    @Test
-    public void addStreetFails() throws Exception {
-      Node n = new Node("Hillman", true);
-      shouldFail(n.addStreet(null));
+      assertEquals(n.edgeList.size(), 0);
+      // then add a street and make sure that the size is 1 afterwards
+      n.addStreet(edgeMock);
+      assertEquals(n.edgeList.size(),1);
     }
 
 
@@ -60,13 +55,14 @@ public class NodeTest {
       assertNull(n.getRandStreet(1));
     }
 
-
-    // Test that we can get an error if no streets are there...
+    // Test that we can get the expected node back, after passing it in.
     @Test
-    public void getRandStreetSucceeds() throws Exception {
-
+    public void getStreetSucceeds() throws Exception {
+      Node n = new Node("Hillman", true);
+      n.addStreet(edgeMock);
+      assertEquals(n.getRandStreet(1), edgeMock);
     }
-    // test with value, and with nothing there...
+
 
     /*
     /////////////////////////////////////////
