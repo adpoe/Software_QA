@@ -94,7 +94,10 @@ public class DriverTest {
     assertEquals(d.location.getLocationName(), "Hillman Library");
 
     // and ensure that we move to Sennott Square from there,
-    // since that is the only edge
+    // since we have it stubbed.
+    // My goal is to make sure we are updating internal values correctly,
+    // as this is the 'driver' of the whole simulation, essentially.
+    // The ability to move forward in an expected way.
     assertEquals(d.getNextStreet(1).to.getLocationName(), "Sennott Square");
   }
 

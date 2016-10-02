@@ -1,5 +1,5 @@
 
-public class Main {
+public class CitySim9003 {
 
     public static void main(String[] args) {
 
