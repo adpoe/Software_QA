@@ -17,7 +17,7 @@ public class Graph {
             this.elements.addLast(node);
         }
     }
-
+    
     /**
      * Get a randNum at most the size of total number of nodes created
      * @param randNum

@@ -14,6 +14,8 @@ public class Main {
         while (driverNum <= 5) {
             // initialize the simulation with our random seed
             Driver driver = new Driver(seed, driverNum);
+            // run the simulation
+            driver.simulate();
             driverNum++;
             seed+=13; // need to make sure we don't go OVER the limit...
                       // because he'll test probably need to start over if we go above max

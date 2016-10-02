@@ -34,7 +34,8 @@ public class GraphTest {
   @Test
   public void testGraphConstructor() throws Exception {
       LinkedList<Node> ll = new LinkedList<Node>();
-      // add three nodes to our list
+      // add three nodes to our list, with a stub
+      Mockito.when(mockedNode.getLocationName()).thenReturn("Hillman");
       ll.addLast(mockedNode);
       ll.addLast(mockedNode);
       ll.addLast(mockedNode);
@@ -43,6 +44,7 @@ public class GraphTest {
       Graph g = new Graph(ll);
 
       assertEquals(g.elements.size(), 3);
+      assertEquals(g.elements.get(2).getLocationName(), "Hillman");
   }
 
   ////////////////////////////////

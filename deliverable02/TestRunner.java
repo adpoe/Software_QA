@@ -14,6 +14,7 @@ public class TestRunner {
 	classesToTest.add(NodeTest.class);
   classesToTest.add(EdgeTest.class);
   classesToTest.add(GraphTest.class);
+  classesToTest.add(DriverTest.class);
 
 
 	// For all test classes added, loop through and use JUnit

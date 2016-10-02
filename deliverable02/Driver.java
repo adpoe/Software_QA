@@ -8,8 +8,7 @@ import java.util.Random;
  */
 public class Driver {
     // fields
-    private static int max = 4; // used for setting bounds on RNG
-    int randSeed;  // our random seed, initialized at startup
+    static int max = 4; // used for setting bounds on RNG
     int driverNum;
     int cupsCoffee;
     Random rng;
@@ -99,10 +98,9 @@ public class Driver {
             this.location = this.city.getEntryPoint(randNum);
         }
 
-        this.simulate();
+        //this.simulate();
 
     }
-
 
     public void printDetails(Edge street) {
         // print what happened last iteration
@@ -137,7 +135,7 @@ public class Driver {
 
             // get the random street
             int randNum = this.getRandomNum();
-            Edge nextStreet = this.location.getRandStreet(randNum);
+            Edge nextStreet = this.getNextStreet(randNum);
 
             // pass edge to print details every iteration
             this.printDetails(nextStreet);
@@ -150,7 +148,11 @@ public class Driver {
 
     }
 
-    public int getRandomNum() {
+    public Edge getNextStreet(int randNum) {
+        return this.location.getRandStreet(randNum);
+    }
+
+    private int getRandomNum() {
         return rng.nextInt(max);
     }
 }
