@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.*;
 
+
 /**
  * This test class tests all 4 public methods in the Nodes class for the project.
  * The public methods are:
@@ -129,5 +130,5 @@ public class NodeTest {
       Node n = new Node("Frick Building", false);
       assertFalse(n.getHasCoffee());
     }
-    
+
 }
